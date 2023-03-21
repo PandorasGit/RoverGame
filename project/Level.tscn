@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3f1wfqnfjo6k"]
+
+[ext_resource type="PackedScene" uid="uid://dgw16welgavqv" path="res://Rover/Rover.tscn" id="1_o1wor"]
+[ext_resource type="PackedScene" uid="uid://r5sormr2bv41" path="res://Console/Console.tscn" id="2_f1p5l"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Rover" parent="." node_paths=PackedStringArray("console") instance=ExtResource("1_o1wor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656491, 0)
+console = NodePath("../Console")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(31.5138, 0, 0, 0, 0.17951, 0, 0, 0, 30.4156, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.587034, 0.175049, -0.790411, 0.0798012, 0.959076, 0.271671, 0.80562, -0.222556, 0.549041, -5.11684, 3.17876, 0)
+light_color = Color(0.772549, 0.509804, 0.352941, 1)
+light_energy = 0.833
+
+[node name="Console" parent="." node_paths=PackedStringArray("rover") instance=ExtResource("2_f1p5l")]
+rover = NodePath("../Rover")
+
+[connection signal="going" from="Console" to="Rover" method="_on_console_going"]

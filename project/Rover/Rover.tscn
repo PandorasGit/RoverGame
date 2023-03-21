@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgw16welgavqv"]
+
+[ext_resource type="Script" path="res://Rover/Rover.gd" id="1_i7xi4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk8cp"]
+albedo_color = Color(0.603922, 0, 0.670588, 1)
+
+[node name="Rover" type="Node3D"]
+script = ExtResource("1_i7xi4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material = SubResource("StandardMaterial3D_rk8cp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984781, 0.539556)
