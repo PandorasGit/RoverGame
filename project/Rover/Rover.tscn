@@ -1,15 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgw16welgavqv"]
+[gd_scene load_steps=2 format=3 uid="uid://bo0k232m32wxv"]
 
-[ext_resource type="Script" path="res://Rover/Rover.gd" id="1_i7xi4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk8cp"]
-albedo_color = Color(0.603922, 0, 0.670588, 1)
+[ext_resource type="Script" path="res://Rover/rover.gd" id="1_bmicv"]
 
 [node name="Rover" type="Node3D"]
-script = ExtResource("1_i7xi4")
+script = ExtResource("1_bmicv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-material = SubResource("StandardMaterial3D_rk8cp")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984781, 0.539556)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01093, 0.520652)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Forward" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "forward()"
+
+[node name="Reverse" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "reverse()"
+
+[node name="Brake" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "brake()"
+
+[connection signal="pressed" from="VBoxContainer/Forward" to="." method="forward"]
+[connection signal="pressed" from="VBoxContainer/Reverse" to="." method="reverse"]
+[connection signal="pressed" from="VBoxContainer/Brake" to="." method="brake"]

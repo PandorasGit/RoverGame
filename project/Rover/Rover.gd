@@ -1,14 +1,47 @@
 extends Node3D
 
-@export var console : Control
 
-var rover_moving = false
+var speed = 0
 
 
 func _process(delta):
-	if rover_moving == true:
-		self.global_position.z += -0.1
+	global_position.z += speed
 
-
-func _on_console_going():
-	rover_moving = true
+func forward():
+	speed = -0.01
+	
+	
+func reverse():
+	speed = 0.01
+	
+	
+func brake():
+	speed = 0
+	
+	
+func spin(degrees : int):
+	pass
+	
+	
+func switch_camera(camera : Camera3D):
+	pass
+	
+	
+func rotate_camera(degress : int):
+	pass
+	
+	
+func pitch_shoulder(degrees : int):
+	pass
+	
+	
+func pitch_elbow(degrees : int):
+	pass
+	
+	
+func open_claw():
+	pass
+	
+	
+func close_claw():
+	pass
