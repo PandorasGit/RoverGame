@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo0k232m32wxv"]
+[gd_scene load_steps=3 format=3 uid="uid://bo0k232m32wxv"]
 
 [ext_resource type="Script" path="res://Rover/rover.gd" id="1_bmicv"]
 
-[node name="Rover" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pw05"]
+
+[node name="Rover" type="CharacterBody3D"]
 script = ExtResource("1_bmicv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -26,6 +28,20 @@ text = "reverse()"
 layout_mode = 2
 text = "brake()"
 
+[node name="Spin" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "spin()"
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.998885)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_8pw05")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.38506)
+
 [connection signal="pressed" from="VBoxContainer/Forward" to="." method="forward"]
 [connection signal="pressed" from="VBoxContainer/Reverse" to="." method="reverse"]
 [connection signal="pressed" from="VBoxContainer/Brake" to="." method="brake"]
+[connection signal="pressed" from="VBoxContainer/Spin" to="." method="spin" binds= [45]]

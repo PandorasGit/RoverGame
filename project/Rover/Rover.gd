@@ -1,18 +1,19 @@
-extends Node3D
+extends CharacterBody3D
 
 
 var speed = 0
 
 
-func _process(delta):
-	global_position.z += speed
+func _physics_process(delta):
+	velocity = Vector3.FORWARD.rotated(Vector3.UP, rotation.y) * speed
+	move_and_slide()
 
 func forward():
-	speed = -0.01
+	speed = 100
 	
 	
 func reverse():
-	speed = 0.01
+	speed = -100
 	
 	
 func brake():
@@ -20,7 +21,7 @@ func brake():
 	
 	
 func spin(degrees : int):
-	pass
+	rotation_degrees.y += degrees
 	
 	
 func switch_camera(camera : Camera3D):

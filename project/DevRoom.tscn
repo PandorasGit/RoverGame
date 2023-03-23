@@ -26,3 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.64921, 0, -6.91893)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26665, 0, -2.46573)
 
 [node name="Rover" parent="." instance=ExtResource("1_2ld4n")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0269271, 0.999637, 0, -0.999637, -0.0269271, 0, 9.62768, 0.0353985)
+current = true
