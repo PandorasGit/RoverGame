@@ -13,8 +13,8 @@ albedo_color = Color(0.686275, 0.603922, 0.435294, 1)
 material = SubResource("StandardMaterial3D_dqf4j")
 size = Vector3(100, 1, 100)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kjfwr"]
-points = PackedVector3Array(50.7837, 1.88095, 50.7837, -50.7837, -1.29365, -50.7837, -50.7837, 1.88095, -50.7837, 50.7837, -1.29365, -50.7837, -50.7837, -1.29365, 50.7837, -50.7837, 1.88095, 50.7837, 50.7837, 1.88095, -50.7837, 50.7837, -1.29365, 50.7837)
+[sub_resource type="BoxShape3D" id="BoxShape3D_800wt"]
+size = Vector3(100, 1, 110)
 
 [node name="DevRoom" type="Node3D"]
 
@@ -32,12 +32,21 @@ mesh = SubResource("BoxMesh_jr03d")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_kjfwr")
+shape = SubResource("BoxShape3D_800wt")
 
 [node name="debug" parent="." instance=ExtResource("2_7ejls")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.99958, -0.0232739, -0.0172603, 0.0164931, -0.0327602, 0.999327, -0.0238237, -0.999192, -0.0323626, 0, 14.8423, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.404008, 0.914755, 0, -0.914755, 0.404008, 0, 6.7144, 0)
+shadow_enabled = true
 
 [connection signal="pressed" from="debug/VBoxContainer/Forward" to="rover" method="forward"]
 [connection signal="pressed" from="debug/VBoxContainer/Reverse" to="rover" method="reverse"]
 [connection signal="pressed" from="debug/VBoxContainer/Brake" to="rover" method="brake"]
+[connection signal="pressed" from="debug/VBoxContainer/Spin" to="rover" method="spin"]
+[connection signal="pressed" from="debug/VBoxContainer/Camera" to="rover" method="change_camera"]
 
 [editable path="debug"]

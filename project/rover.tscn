@@ -39,11 +39,28 @@ use_as_steering = true
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_7msfv")
 
+[node name="FrontLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, -1.2414)
+use_as_traction = true
+use_as_steering = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/FrontLeft"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_7msfv")
+
 [node name="MiddleRight" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26923, -0.924278, 9.53674e-07)
 use_as_traction = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/MiddleRight"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_7msfv")
+
+[node name="MiddleLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, 9.53674e-07)
+use_as_traction = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/MiddleLeft"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_7msfv")
 
@@ -56,23 +73,6 @@ use_as_steering = true
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_7msfv")
 
-[node name="FrontLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, -1.2414)
-use_as_traction = true
-use_as_steering = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/FrontLeft"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_7msfv")
-
-[node name="MiddleLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, 9.53674e-07)
-use_as_traction = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/MiddleLeft"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_7msfv")
-
 [node name="BackLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, 1.32262)
 use_as_traction = true
@@ -82,5 +82,14 @@ use_as_steering = true
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_7msfv")
 
-[node name="Camera3D" type="Camera3D" parent="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457738, 1.5542, 5.07729)
+[node name="Node" type="Node3D" parent="VehicleBody3D"]
+
+[node name="MastCam" type="Camera3D" parent="VehicleBody3D/Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54757, 0)
+current = true
+
+[node name="GroundCam" type="Camera3D" parent="VehicleBody3D/Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.583525, -1.50382)
+
+[node name="SelfieCam" type="Camera3D" parent="VehicleBody3D/Node"]
+transform = Transform3D(1, 0, 0, 0, 0.912377, 0.40935, 0, -0.40935, 0.912377, 0, 2.72464, 4.70931)

@@ -24,3 +24,11 @@ text = "Reverse()"
 [node name="Brake" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Brake()"
+
+[node name="Spin" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Spin()"
+
+[node name="Camera" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Camera"
