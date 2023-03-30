@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://i1fr2h6a5dsh"]
+[gd_scene load_steps=9 format=3 uid="uid://i1fr2h6a5dsh"]
 
 [ext_resource type="PackedScene" uid="uid://bxemp6owpggy" path="res://rover.tscn" id="1_6vqof"]
 [ext_resource type="PackedScene" uid="uid://c0sve2nlpfc2" path="res://debug.tscn" id="2_7ejls"]
+[ext_resource type="PackedScene" uid="uid://dmgb7hl5nyact" path="res://console.tscn" id="3_jfymj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqf4j"]
 albedo_color = Color(0.686275, 0.603922, 0.435294, 1)
@@ -56,6 +57,8 @@ material = SubResource("StandardMaterial3D_u8p45")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle2"]
 shape = SubResource("BoxShape3D_j1tim")
+
+[node name="console" parent="." instance=ExtResource("3_jfymj")]
 
 [connection signal="pressed" from="debug/VBoxContainer/Forward" to="rover" method="forward"]
 [connection signal="pressed" from="debug/VBoxContainer/Reverse" to="rover" method="reverse"]

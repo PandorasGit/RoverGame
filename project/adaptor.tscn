@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b25risbogg78u"]
+
+[ext_resource type="Script" path="res://adaptor.gd" id="1_aq2ke"]
+[ext_resource type="PackedScene" uid="uid://bxemp6owpggy" path="res://rover.tscn" id="2_equvx"]
+
+[node name="adaptor" type="Node3D"]
+script = ExtResource("1_aq2ke")
+
+[node name="rover" parent="." instance=ExtResource("2_equvx")]

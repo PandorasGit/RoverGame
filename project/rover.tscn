@@ -54,7 +54,10 @@ shape = SubResource("ConvexPolygonShape3D_2oe1i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26923, -0.924278, -1.2414)
 use_as_traction = true
 use_as_steering = true
-suspension_stiffness = 10.0
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/FrontRight"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -64,7 +67,10 @@ mesh = SubResource("CylinderMesh_7msfv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, -1.2414)
 use_as_traction = true
 use_as_steering = true
-suspension_stiffness = 10.0
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/FrontLeft"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -73,7 +79,10 @@ mesh = SubResource("CylinderMesh_7msfv")
 [node name="MiddleRight" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26923, -0.924278, 9.53674e-07)
 use_as_traction = true
-suspension_stiffness = 10.0
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/MiddleRight"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -82,7 +91,10 @@ mesh = SubResource("CylinderMesh_7msfv")
 [node name="MiddleLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, 9.53674e-07)
 use_as_traction = true
-suspension_stiffness = 10.0
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/MiddleLeft"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -92,7 +104,10 @@ mesh = SubResource("CylinderMesh_7msfv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26923, -0.924278, 1.32262)
 use_as_traction = true
 use_as_steering = true
-suspension_stiffness = 10.0
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/BackRight"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -102,7 +117,10 @@ mesh = SubResource("CylinderMesh_7msfv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27714, -0.924278, 1.32262)
 use_as_traction = true
 use_as_steering = true
-suspension_stiffness = 10.0
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D/BackLeft"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
