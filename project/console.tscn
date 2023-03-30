@@ -9,15 +9,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qdpmb")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="History" type="TextEdit" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -235.0
-offset_bottom = 103.0
+offset_left = -1152.0
+offset_top = 464.0
+offset_right = -624.0
+offset_bottom = 616.0
 grow_horizontal = 0
-script = ExtResource("1_qdpmb")
+theme_override_constants/line_spacing = -5
+placeholder_text = "LOREM IPSUM BB GROL"
+editable = false
 
-[connection signal="text_changed" from="TextEdit" to="TextEdit" method="_on_text_changed"]
+[node name="Terminal" type="LineEdit" parent="."]
+layout_mode = 2
+offset_top = 616.0
+offset_right = 528.0
+offset_bottom = 647.0
+theme_override_constants/caret_width = 5
+caret_blink = true
+
+[connection signal="text_changed" from="History" to="History" method="_on_text_changed"]
+[connection signal="text_submitted" from="Terminal" to="." method="_on_terminal_text_submitted"]
