@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://i1fr2h6a5dsh"]
+[gd_scene load_steps=8 format=3 uid="uid://i1fr2h6a5dsh"]
 
 [ext_resource type="PackedScene" uid="uid://bxemp6owpggy" path="res://rover.tscn" id="1_6vqof"]
 [ext_resource type="PackedScene" uid="uid://c0sve2nlpfc2" path="res://debug.tscn" id="2_7ejls"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_2jjyw"]
-height = 9.447
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqf4j"]
 albedo_color = Color(0.686275, 0.603922, 0.435294, 1)
@@ -14,16 +11,18 @@ material = SubResource("StandardMaterial3D_dqf4j")
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_800wt"]
-size = Vector3(100, 1, 110)
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1tim"]
+size = Vector3(7.5, 7.5, 7.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8p45"]
+albedo_color = Color(0.278431, 0.835294, 1, 1)
 
 [node name="DevRoom" type="Node3D"]
 
 [node name="rover" parent="." instance=ExtResource("1_6vqof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15495, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.67318, -7.94142)
-mesh = SubResource("CylinderMesh_2jjyw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -36,12 +35,27 @@ shape = SubResource("BoxShape3D_800wt")
 
 [node name="debug" parent="." instance=ExtResource("2_7ejls")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.99958, -0.0232739, -0.0172603, 0.0164931, -0.0327602, 0.999327, -0.0238237, -0.999192, -0.0323626, 0, 14.8423, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.404008, 0.914755, 0, -0.914755, 0.404008, 0, 6.7144, 0)
 shadow_enabled = true
+
+[node name="Obstacle" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1891, -10.5133)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Obstacle"]
+size = Vector3(7.5, 7.5, 7.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle"]
+shape = SubResource("BoxShape3D_j1tim")
+
+[node name="Obstacle2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.689297, 0.493288, 0.5306, -0.581967, 0.813213, 0, -0.431491, -0.308792, 0.847622, 0, 0.386292, -10.5133)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Obstacle2"]
+material = SubResource("StandardMaterial3D_u8p45")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle2"]
+shape = SubResource("BoxShape3D_j1tim")
 
 [connection signal="pressed" from="debug/VBoxContainer/Forward" to="rover" method="forward"]
 [connection signal="pressed" from="debug/VBoxContainer/Reverse" to="rover" method="reverse"]

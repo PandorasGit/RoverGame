@@ -22,7 +22,7 @@ func reverse():
 	
 func brake():
 	rover.engine_force = 0
-	rover.brake = 0.5
+	rover.brake = 1
 	
 	
 func spin():
