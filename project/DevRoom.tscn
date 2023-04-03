@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dd745tikdvt8i"]
 
 [ext_resource type="PackedScene" uid="uid://c0sve2nlpfc2" path="res://debug.tscn" id="2_7ejls"]
-[ext_resource type="PackedScene" uid="uid://dmgb7hl5nyact" path="res://console.tscn" id="3_jfymj"]
-[ext_resource type="PackedScene" path="res://Rover/rover.tscn" id="3_xwqu1"]
+[ext_resource type="PackedScene" uid="uid://ku2ktx5wi7fd" path="res://console/console.tscn" id="2_240b5"]
+[ext_resource type="PackedScene" uid="uid://uq3ixol30lfo" path="res://Rover/rover.tscn" id="3_xwqu1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqf4j"]
 albedo_color = Color(0.686275, 0.603922, 0.435294, 1)
@@ -55,9 +55,9 @@ material = SubResource("StandardMaterial3D_u8p45")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle2"]
 shape = SubResource("BoxShape3D_j1tim")
 
-[node name="console" parent="." instance=ExtResource("3_jfymj")]
+[node name="console" parent="." instance=ExtResource("2_240b5")]
 
 [node name="rover" parent="." instance=ExtResource("3_xwqu1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82767, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10697, 5.43706)
 
 [editable path="debug"]
