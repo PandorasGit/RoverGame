@@ -5,7 +5,7 @@ extends Control
 var terminal_text
 
 
-func _on_terminal_text_submitted(new_text):
+func _on_terminal_text_submitted(_new_text):
 	command_history.text += terminal.text + "\n"
 	parse_terminal()
 	terminal.clear()
@@ -15,12 +15,12 @@ func parse_terminal():
 	terminal_text = terminal.text.split(",")
 	for command in terminal_text:
 		if command == "forward":
-			print("forward")
+			EventQueue.emit_signal("going_forward")
 		if command == "reverse":
-			print("reverse")
+			EventQueue.emit_signal("reversing")
 		if command == "brake":
-			print("brake")
+			EventQueue.emit_signal("breaking")
 		if command == "spin":
-			print("spin")
+			EventQueue.emit_signal("spinning")
 		if command == "camera":
-			print("camera")
+			EventQueue.emit_signal("changing_camera")

@@ -11,6 +11,13 @@ extends Node3D
 var current_cam := 0
 
 
+func _ready():
+	EventQueue.going_forward.connect(forward)
+	EventQueue.reversing.connect(reverse)
+	EventQueue.breaking.connect(brake)
+	EventQueue.spinning.connect(spin)
+	EventQueue.changing_camera.connect(change_camera)
+
 func forward():
 	rover.brake = 0
 	rover.engine_force = -20
