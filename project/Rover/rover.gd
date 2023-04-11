@@ -13,6 +13,10 @@ extends Node3D
 
 var current_cam := 0
 
+func _process(_delta):
+	if abs(rover.linear_velocity.z) >= 2:
+		rover.engine_force = 0
+
 
 func _ready():
 	EventQueue.going_forward.connect(forward)
@@ -23,7 +27,7 @@ func _ready():
 
 
 func forward(duration):
-
+	
 	rover.brake = 0
 	rover.engine_force = -20
 	durationTimer.stop()
@@ -47,14 +51,22 @@ func brake():
 	
 func spin(duration):
 	rover.engine_force = 0
-	frontRightWheel.engine_force = 100
-	middleRightWheel.engine_force = 100
-	backRightWheel.engine_force = 100
-	frontLeftWheel.engine_force = -100
-	middleLeftWheel.engine_force = -100
-	backLeftWheel.engine_force = -100
+	if duration < 0:
+		frontRightWheel.engine_force = 100
+		middleRightWheel.engine_force = 100
+		backRightWheel.engine_force = 100
+		frontLeftWheel.engine_force = -100
+		middleLeftWheel.engine_force = -100
+		backLeftWheel.engine_force = -100
+	else:
+		frontRightWheel.engine_force = -100
+		middleRightWheel.engine_force = -100
+		backRightWheel.engine_force = -100
+		frontLeftWheel.engine_force = 100
+		middleLeftWheel.engine_force = 100
+		backLeftWheel.engine_force = 100
 	durationTimer.stop()
-	durationTimer.start(duration)
+	durationTimer.start(abs(duration))
 	
 	
 func change_camera():

@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd745tikdvt8i"]
+[gd_scene load_steps=8 format=3 uid="uid://dd745tikdvt8i"]
 
-[ext_resource type="PackedScene" uid="uid://c0sve2nlpfc2" path="res://debug.tscn" id="2_7ejls"]
 [ext_resource type="PackedScene" uid="uid://ku2ktx5wi7fd" path="res://console/console.tscn" id="2_240b5"]
 [ext_resource type="PackedScene" uid="uid://uq3ixol30lfo" path="res://Rover/rover.tscn" id="3_xwqu1"]
 
@@ -23,6 +22,7 @@ albedo_color = Color(0.278431, 0.835294, 1, 1)
 [node name="DevRoom" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.8705)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_jr03d")
@@ -31,14 +31,12 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_800wt")
 
-[node name="debug" parent="." instance=ExtResource("2_7ejls")]
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.404008, 0.914755, 0, -0.914755, 0.404008, 0, 6.7144, 0)
 shadow_enabled = true
 
 [node name="Obstacle" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1891, -10.5133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2471, 5.1891, -10.5133)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Obstacle"]
 size = Vector3(7.5, 7.5, 7.5)
@@ -47,7 +45,7 @@ size = Vector3(7.5, 7.5, 7.5)
 shape = SubResource("BoxShape3D_j1tim")
 
 [node name="Obstacle2" type="StaticBody3D" parent="."]
-transform = Transform3D(0.689297, 0.493288, 0.5306, -0.581967, 0.813213, 0, -0.431491, -0.308792, 0.847622, 0, 0.386292, -10.5133)
+transform = Transform3D(0.689297, 0.493288, 0.5306, -0.581967, 0.813213, 0, -0.431491, -0.308792, 0.847622, 13.2471, 0.386292, -10.5133)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Obstacle2"]
 material = SubResource("StandardMaterial3D_u8p45")
@@ -59,5 +57,3 @@ shape = SubResource("BoxShape3D_j1tim")
 
 [node name="rover" parent="." instance=ExtResource("3_xwqu1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10697, 5.43706)
-
-[editable path="debug"]
