@@ -46,7 +46,7 @@ func spin():
 func change_camera():
 	var cams = $VehicleBody3D/Cameras.get_children()
 	current_cam += 1
-	if current_cam > 2:
+	if current_cam > 3:
 		current_cam = 0
 	cams[current_cam].current = true
 	print(cams[current_cam].name)

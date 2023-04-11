@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Rover/rover.gd" id="1_8iqnh"]
 [ext_resource type="PackedScene" uid="uid://docbfeldwp2ey" path="res://Rover/Rovee.glb" id="2_8y4km"]
-[ext_resource type="PackedScene" uid="uid://c3m5omv3gkxde" path="res://Rover/Rovee_Wheel.glb" id="2_bd16f"]
+[ext_resource type="PackedScene" uid="uid://ns5kge6sx1j2" path="res://Rover/Rovee_Wheel.glb" id="2_nbuni"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v05ob"]
 size = Vector3(4.177, 1.913, 6.201)
@@ -16,6 +16,23 @@ script = ExtResource("1_8iqnh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102175, 0.438063)
 shape = SubResource("BoxShape3D_v05ob")
 
+[node name="Rovee" parent="VehicleBody3D" instance=ExtResource("2_8y4km")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Cameras" type="Node3D" parent="VehicleBody3D"]
+
+[node name="MastCamera" type="Camera3D" parent="VehicleBody3D/Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00699997, 2.90527, 0.0614114)
+
+[node name="SelfieCamera" type="Camera3D" parent="VehicleBody3D/Cameras"]
+transform = Transform3D(0.965926, -0.031578, 0.256885, 0, 0.992529, 0.122008, -0.258819, -0.117851, 0.95871, 2.40214, 2.3811, 4.47279)
+
+[node name="FrontCamera" type="Camera3D" parent="VehicleBody3D/Cameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137432, -3.083)
+
+[node name="Camera3D2" type="Camera3D" parent="VehicleBody3D/Cameras"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.5, 0, 0)
+
 [node name="FrontRight" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26824, -1.83336, -2.7414)
 use_as_traction = true
@@ -26,21 +43,10 @@ suspension_stiffness = 8.0
 damping_compression = 2.0
 damping_relaxation = 2.0
 
-[node name="Rovee_Wheel" parent="VehicleBody3D/FrontRight" instance=ExtResource("2_bd16f")]
+[node name="Rovee_Wheel" parent="VehicleBody3D/FrontRight" instance=ExtResource("2_nbuni")]
 
-[node name="FrontLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, -2.7414)
-use_as_traction = true
-use_as_steering = true
-suspension_travel = 0.3
-suspension_stiffness = 8.0
-damping_compression = 2.0
-damping_relaxation = 2.0
-
-[node name="Rovee_Wheel" parent="VehicleBody3D/FrontLeft" instance=ExtResource("2_bd16f")]
-
-[node name="MiddleRight" type="VehicleWheel3D" parent="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26824, -1.83336, 0.2586)
+[node name="BackLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, 3.2586)
 use_as_traction = true
 use_as_steering = true
 wheel_radius = 0.611
@@ -49,19 +55,7 @@ suspension_stiffness = 8.0
 damping_compression = 2.0
 damping_relaxation = 2.0
 
-[node name="Rovee_Wheel" parent="VehicleBody3D/MiddleRight" instance=ExtResource("2_bd16f")]
-
-[node name="MiddleLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, 0.2586)
-use_as_traction = true
-use_as_steering = true
-wheel_radius = 0.611
-suspension_travel = 0.3
-suspension_stiffness = 8.0
-damping_compression = 2.0
-damping_relaxation = 2.0
-
-[node name="Rovee_Wheel" parent="VehicleBody3D/MiddleLeft" instance=ExtResource("2_bd16f")]
+[node name="Rovee_Wheel" parent="VehicleBody3D/BackLeft" instance=ExtResource("2_nbuni")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="BackRight" type="VehicleWheel3D" parent="VehicleBody3D"]
@@ -74,10 +68,11 @@ suspension_stiffness = 8.0
 damping_compression = 2.0
 damping_relaxation = 2.0
 
-[node name="Rovee_Wheel" parent="VehicleBody3D/BackRight" instance=ExtResource("2_bd16f")]
+[node name="Rovee_Wheel" parent="VehicleBody3D/BackRight" instance=ExtResource("2_nbuni")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0)
 
-[node name="BackLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, 3.2586)
+[node name="MiddleLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, 0.2586)
 use_as_traction = true
 use_as_steering = true
 wheel_radius = 0.611
@@ -86,18 +81,29 @@ suspension_stiffness = 8.0
 damping_compression = 2.0
 damping_relaxation = 2.0
 
-[node name="Rovee_Wheel" parent="VehicleBody3D/BackLeft" instance=ExtResource("2_bd16f")]
+[node name="Rovee_Wheel" parent="VehicleBody3D/MiddleLeft" instance=ExtResource("2_nbuni")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
-[node name="Cameras" type="Node3D" parent="VehicleBody3D"]
+[node name="MiddleRight" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26824, -1.83336, 0.2586)
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.611
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
-[node name="MastCamera" type="Camera3D" parent="VehicleBody3D/Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00699997, 2.90527, 0.0614114)
+[node name="Rovee_Wheel" parent="VehicleBody3D/MiddleRight" instance=ExtResource("2_nbuni")]
 
-[node name="SelfieCamera" type="Camera3D" parent="VehicleBody3D/Cameras"]
-transform = Transform3D(0.965926, -0.031578, 0.256885, 0, 0.992529, 0.122008, -0.258819, -0.117851, 0.95871, 2.40214, 2.3811, 4.47279)
+[node name="FrontLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, -2.7414)
+use_as_traction = true
+use_as_steering = true
+suspension_travel = 0.3
+suspension_stiffness = 8.0
+damping_compression = 2.0
+damping_relaxation = 2.0
 
-[node name="Camera3D" type="Camera3D" parent="VehicleBody3D/Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137432, -3.083)
-
-[node name="Rovee" parent="VehicleBody3D" instance=ExtResource("2_8y4km")]
+[node name="Rovee_Wheel" parent="VehicleBody3D/FrontLeft" instance=ExtResource("2_nbuni")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
