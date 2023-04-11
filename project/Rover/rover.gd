@@ -44,7 +44,7 @@ func spin():
 	
 	
 func change_camera():
-	var cams = $VehicleBody3D/Node.get_children()
+	var cams = $VehicleBody3D/Cameras.get_children()
 	current_cam += 1
 	if current_cam > 2:
 		current_cam = 0
