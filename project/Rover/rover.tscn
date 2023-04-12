@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://uq3ixol30lfo"]
+[gd_scene load_steps=29 format=3 uid="uid://uq3ixol30lfo"]
 
 [ext_resource type="Script" path="res://Rover/rover.gd" id="1_8iqnh"]
 [ext_resource type="PackedScene" uid="uid://docbfeldwp2ey" path="res://Rover/Rovee.glb" id="2_8y4km"]
@@ -6,6 +6,126 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v05ob"]
 size = Vector3(4.177, 1.913, 6.201)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d2qn"]
+albedo_color = Color(0.792157, 0.564706, 0.105882, 1)
+metallic = 0.75
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8l3d"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf56o"]
+albedo_color = Color(0.0235294, 0.239216, 0.384314, 1)
+roughness = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_df2q3"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38i46"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpya8"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3ugq"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0bra"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04y21"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.2
+clearcoat_roughness = 1.0
+anisotropy = -0.92
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpkxq"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdjgv"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sposv"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wwxi"]
+albedo_color = Color(0.411765, 0.403922, 0.392157, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ugt1j"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxvjx"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwi2b"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pp700"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntgg4"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmtct"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4sk8"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atj1p"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_585su"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u4weo"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7m0s"]
+albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
+metallic = 0.68
+roughness = 0.48
 
 [node name="rover" type="Node3D"]
 script = ExtResource("1_8iqnh")
@@ -18,6 +138,58 @@ shape = SubResource("BoxShape3D_v05ob")
 
 [node name="Rovee" parent="VehicleBody3D" instance=ExtResource("2_8y4km")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Body" parent="VehicleBody3D/Rovee" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2d2qn")
+
+[node name="Solar_Panel" parent="VehicleBody3D/Rovee" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_y8l3d")
+surface_material_override/1 = SubResource("StandardMaterial3D_pf56o")
+
+[node name="Mast" parent="VehicleBody3D/Rovee" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_df2q3")
+
+[node name="Mast_Camera" parent="VehicleBody3D/Rovee" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_38i46")
+
+[node name="Front_Camera" parent="VehicleBody3D/Rovee" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lpya8")
+
+[node name="Selfie_Stick" parent="VehicleBody3D/Rovee" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m3ugq")
+
+[node name="Selife_Camera" parent="VehicleBody3D/Rovee" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m0bra")
+
+[node name="Front_Camera_Lens" parent="VehicleBody3D/Rovee" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_04y21")
+
+[node name="Antenna" parent="VehicleBody3D/Rovee" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mpkxq")
+
+[node name="Upper_Arm" parent="VehicleBody3D/Rovee" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mdjgv")
+
+[node name="Fore_Arm" parent="VehicleBody3D/Rovee/Upper_Arm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sposv")
+
+[node name="Claw_Compartment" parent="VehicleBody3D/Rovee/Upper_Arm/Fore_Arm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4wwxi")
+
+[node name="Claw_Left_Lower" parent="VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ugt1j")
+
+[node name="Claw_Left_Upper" parent="VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment/Claw_Left_Lower" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gxvjx")
+
+[node name="Claw_Right_Lower" parent="VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wwi2b")
+
+[node name="Claw_Right_Upper" parent="VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment/Claw_Right_Lower" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pp700")
+
+[node name="Claw_Mount" parent="VehicleBody3D/Rovee" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ntgg4")
 
 [node name="Cameras" type="Node3D" parent="VehicleBody3D"]
 
@@ -45,6 +217,9 @@ damping_relaxation = 2.0
 
 [node name="Rovee_Wheel" parent="VehicleBody3D/FrontRight" instance=ExtResource("2_nbuni")]
 
+[node name="Rovee_Cylinder" parent="VehicleBody3D/FrontRight/Rovee_Wheel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cmtct")
+
 [node name="BackLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, 3.2586)
 use_as_traction = true
@@ -57,6 +232,9 @@ damping_relaxation = 2.0
 
 [node name="Rovee_Wheel" parent="VehicleBody3D/BackLeft" instance=ExtResource("2_nbuni")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Rovee_Cylinder" parent="VehicleBody3D/BackLeft/Rovee_Wheel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_t4sk8")
 
 [node name="BackRight" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26824, -1.83336, 3.2586)
@@ -71,6 +249,9 @@ damping_relaxation = 2.0
 [node name="Rovee_Wheel" parent="VehicleBody3D/BackRight" instance=ExtResource("2_nbuni")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0)
 
+[node name="Rovee_Cylinder" parent="VehicleBody3D/BackRight/Rovee_Wheel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_atj1p")
+
 [node name="MiddleLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, 0.2586)
 use_as_traction = true
@@ -84,6 +265,9 @@ damping_relaxation = 2.0
 [node name="Rovee_Wheel" parent="VehicleBody3D/MiddleLeft" instance=ExtResource("2_nbuni")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
+[node name="Rovee_Cylinder" parent="VehicleBody3D/MiddleLeft/Rovee_Wheel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_585su")
+
 [node name="MiddleRight" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26824, -1.83336, 0.2586)
 use_as_traction = true
@@ -96,6 +280,9 @@ damping_relaxation = 2.0
 
 [node name="Rovee_Wheel" parent="VehicleBody3D/MiddleRight" instance=ExtResource("2_nbuni")]
 
+[node name="Rovee_Cylinder" parent="VehicleBody3D/MiddleRight/Rovee_Wheel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_u4weo")
+
 [node name="FrontLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23176, -1.83336, -2.7414)
 use_as_traction = true
@@ -105,11 +292,23 @@ suspension_stiffness = 8.0
 damping_compression = 2.0
 damping_relaxation = 2.0
 
+[node name="Rovee_Wheel" parent="VehicleBody3D/FrontLeft" instance=ExtResource("2_nbuni")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Rovee_Cylinder" parent="VehicleBody3D/FrontLeft/Rovee_Wheel" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c7m0s")
+
 [node name="Node" type="Node3D" parent="VehicleBody3D"]
 
 [node name="DurationTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="timeout" from="DurationTimer" to="." method="_on_duration_timer_timeout"]
-[node name="Rovee_Wheel" parent="VehicleBody3D/FrontLeft" instance=ExtResource("2_nbuni")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[editable path="VehicleBody3D/Rovee"]
+[editable path="VehicleBody3D/FrontRight/Rovee_Wheel"]
+[editable path="VehicleBody3D/BackLeft/Rovee_Wheel"]
+[editable path="VehicleBody3D/BackRight/Rovee_Wheel"]
+[editable path="VehicleBody3D/MiddleLeft/Rovee_Wheel"]
+[editable path="VehicleBody3D/MiddleRight/Rovee_Wheel"]
+[editable path="VehicleBody3D/FrontLeft/Rovee_Wheel"]
