@@ -2,6 +2,9 @@ extends Control
 
 @onready var command_history = $History
 @onready var terminal = $Terminal
+
+@export var average_linear_speed := 2
+@export var average_angular_speed := 5.365
 var terminal_text
 
 
@@ -22,7 +25,7 @@ func parse_terminal():
 			if command_with_paramater[0] == "reverse":
 				EventQueue.emit_signal("reversing", duration*2)
 			if command_with_paramater[0] == "spin":
-				EventQueue.emit_signal("spinning", duration/16.62)
+				EventQueue.emit_signal("spinning", duration/5.365)
 		if command_with_paramater[0] == "brake":
 			EventQueue.emit_signal("breaking")
 		if command_with_paramater[0] == "camera":

@@ -72,10 +72,10 @@ func spin(duration):
 func change_camera():
 	var cams = $VehicleBody3D/Cameras.get_children()
 	current_cam += 1
-	if current_cam > 3:
+	if current_cam > cams.size()-1:
 		current_cam = 0
 	cams[current_cam].current = true
-	print(cams[current_cam].name)
+
 
 
 func _on_duration_timer_timeout():

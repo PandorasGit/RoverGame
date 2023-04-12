@@ -202,9 +202,6 @@ transform = Transform3D(0.965926, -0.031578, 0.256885, 0, 0.992529, 0.122008, -0
 [node name="FrontCamera" type="Camera3D" parent="VehicleBody3D/Cameras"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.137432, -3.083)
 
-[node name="Camera3D2" type="Camera3D" parent="VehicleBody3D/Cameras"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.5, 0, 0)
-
 [node name="FrontRight" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26824, -1.83336, -2.7414)
 use_as_traction = true
