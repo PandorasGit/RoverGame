@@ -8,7 +8,14 @@ extends Node3D
 @onready var middleLeftWheel = $VehicleBody3D/MiddleLeft
 @onready var backRightWheel = $VehicleBody3D/BackRight
 @onready var backLeftWheel = $VehicleBody3D/BackLeft
+@onready var durationTimer = $DurationTimer
+
+
 var current_cam := 0
+
+func _process(_delta):
+	if abs(rover.linear_velocity.z) >= 2:
+		rover.engine_force = 0
 
 
 func _ready():
@@ -18,29 +25,48 @@ func _ready():
 	EventQueue.spinning.connect(spin)
 	EventQueue.changing_camera.connect(change_camera)
 
-func forward():
+
+func forward(duration):
+	
 	rover.brake = 0
 	rover.engine_force = -20
+	durationTimer.stop()
+	durationTimer.start(duration)
 	
 	
-func reverse():
+	
+func reverse(duration):
+	
 	rover.brake = 0
 	rover.engine_force = 20
+	durationTimer.stop()
+	durationTimer.start(duration)
 	
 	
 func brake():
+	durationTimer.stop()
 	rover.engine_force = 0
 	rover.brake = 1
 	
 	
-func spin():
+func spin(duration):
 	rover.engine_force = 0
-	frontRightWheel.engine_force = 100
-	middleRightWheel.engine_force = 100
-	backRightWheel.engine_force = 100
-	frontLeftWheel.engine_force = -100
-	middleLeftWheel.engine_force = -100
-	backLeftWheel.engine_force = -100
+	if duration < 0:
+		frontRightWheel.engine_force = 100
+		middleRightWheel.engine_force = 100
+		backRightWheel.engine_force = 100
+		frontLeftWheel.engine_force = -100
+		middleLeftWheel.engine_force = -100
+		backLeftWheel.engine_force = -100
+	else:
+		frontRightWheel.engine_force = -100
+		middleRightWheel.engine_force = -100
+		backRightWheel.engine_force = -100
+		frontLeftWheel.engine_force = 100
+		middleLeftWheel.engine_force = 100
+		backLeftWheel.engine_force = 100
+	durationTimer.stop()
+	durationTimer.start(abs(duration))
 	
 	
 func change_camera():
@@ -50,3 +76,7 @@ func change_camera():
 		current_cam = 0
 	cams[current_cam].current = true
 	print(cams[current_cam].name)
+
+
+func _on_duration_timer_timeout():
+	brake()
