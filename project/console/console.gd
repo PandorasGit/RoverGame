@@ -19,17 +19,17 @@ func parse_terminal():
 	for command in terminal_text:
 		var command_with_paramater = command.split("=")
 		if command_with_paramater.size() > 1:
-			var duration = float(command_with_paramater[1])
+			var paramater = float(command_with_paramater[1])
 			if command_with_paramater[0] == "rotate_forearm":
-				EventQueue.emit_signal("rotate_forearm", duration)
+				EventQueue.emit_signal("rotate_forearm", paramater)
 			if command_with_paramater[0] == "rotate_upperarm":
-				EventQueue.emit_signal("rotate_upperarm", duration)
+				EventQueue.emit_signal("rotate_upperarm", paramater)
 			if command_with_paramater[0] == "forward":
-				EventQueue.emit_signal("going_forward", duration*2)
+				EventQueue.emit_signal("going_forward", paramater)
 			if command_with_paramater[0] == "reverse":
-				EventQueue.emit_signal("reversing", duration*2)
+				EventQueue.emit_signal("reversing", paramater)
 			if command_with_paramater[0] == "spin":
-				EventQueue.emit_signal("spinning", duration/5.365)
+				EventQueue.emit_signal("spinning", paramater/5.365)
 		if command_with_paramater[0] == "brake":
 			EventQueue.emit_signal("breaking")
 		if command_with_paramater[0] == "camera":

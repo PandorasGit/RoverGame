@@ -16,12 +16,14 @@ extends Node3D
 @onready var upperarm = get_node("VehicleBody3D/Rovee/Upper_Arm")
 
 
-var going_forward = false
-var going_reverse = false
+var going := false
 var current_cam := 0
+var last_position := Vector3.ZERO
+var traveling := 0
 
 
 func _ready():
+	last_position = rover.global_position
 	EventQueue.going_forward.connect(forward)
 	EventQueue.reversing.connect(reverse)
 	EventQueue.breaking.connect(brake)
@@ -33,29 +35,36 @@ func _ready():
 	EventQueue.close_claw.connect(close)
 
 
-func forward(duration):
-	going_forward = true
+func _physics_process(_delta):
+	if going and rover.global_position.distance_to(last_position) >= traveling:
+
+		brake()
+
+
+func forward(distance):
+	going = true
+	last_position = rover.global_position
+	traveling = distance
 	rover.brake = 0
 	rover.engine_force = -10
-	durationTimer.stop()
-	durationTimer.start(duration)
+
 	
 	
 	
-func reverse(duration):
-	going_reverse = true
+func reverse(distance):
+	going = true
+	last_position = rover.global_position
+	traveling = distance
 	rover.brake = 0
 	rover.engine_force = 10
-	durationTimer.stop()
-	durationTimer.start(duration)
 	
 	
 func brake():
 	durationTimer.stop()
 	rover.engine_force = 0
 	rover.brake = 1
-	going_forward = false
-	going_reverse = false
+	going = false
+
 	
 	
 func spin(duration):
@@ -115,6 +124,7 @@ func close():
 	var left_target_vector = Vector3(0,0,0) 
 	tween.parallel().tween_property(upperLeftClaw, "rotation", left_target_vector, 1)
 	tween.parallel().tween_property(upperRightClaw, "rotation", right_target_vector, 1)
+
 
 func _on_duration_timer_timeout():
 	brake()

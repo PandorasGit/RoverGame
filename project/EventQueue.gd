@@ -1,8 +1,8 @@
 extends Node
 
 
-signal going_forward(duration)
-signal reversing(duration)
+signal going_forward(distance)
+signal reversing(distance)
 signal breaking
 signal spinning(duration)
 signal changing_camera
