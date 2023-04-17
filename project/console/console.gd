@@ -34,3 +34,7 @@ func parse_terminal():
 			EventQueue.emit_signal("breaking")
 		if command_with_paramater[0] == "camera":
 			EventQueue.emit_signal("changing_camera")
+		if command_with_paramater[0] == "open":
+			EventQueue.emit_signal("open_claw")
+		if command_with_paramater[0] == "close":
+			EventQueue.emit_signal("close_claw")
