@@ -9,7 +9,8 @@ extends Node3D
 @onready var backRightWheel = $VehicleBody3D/BackRight
 @onready var backLeftWheel = $VehicleBody3D/BackLeft
 @onready var durationTimer = $DurationTimer
-
+@onready var forearm = get_node("VehicleBody3D/Rovee/Upper_Arm/Fore_Arm")
+@onready var upperarm = get_node("VehicleBody3D/Rovee/Upper_Arm")
 
 var current_cam := 0
 
@@ -24,6 +25,8 @@ func _ready():
 	EventQueue.breaking.connect(brake)
 	EventQueue.spinning.connect(spin)
 	EventQueue.changing_camera.connect(change_camera)
+	EventQueue.rotate_forearm.connect(rotate_fore_arm)
+	EventQueue.rotate_upperarm.connect(rotate_upperarm)
 
 
 func forward(duration):
@@ -77,6 +80,18 @@ func change_camera():
 	cams[current_cam].current = true
 
 
+func rotate_fore_arm(rotation_degrees):
+	if rotation_degrees >= -60 and rotation_degrees <= 10:
+		var tween = get_tree().create_tween()
+		var target_vector = Vector3(deg_to_rad(rotation_degrees),0,0) 
+		tween.tween_property(forearm, "rotation", target_vector, 2)
+		
+
+func rotate_upperarm(rotation_degrees):
+	if rotation_degrees >= -45 and rotation_degrees <= 30:
+		var tween = get_tree().create_tween()
+		var target_vector = Vector3(deg_to_rad(rotation_degrees),0,0) 
+		tween.tween_property(upperarm, "rotation", target_vector, 2)
 
 func _on_duration_timer_timeout():
 	brake()

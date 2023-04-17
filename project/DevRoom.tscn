@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd745tikdvt8i"]
+[gd_scene load_steps=11 format=3 uid="uid://dd745tikdvt8i"]
 
 [ext_resource type="PackedScene" uid="uid://ku2ktx5wi7fd" path="res://console/console.tscn" id="2_240b5"]
 [ext_resource type="PackedScene" uid="uid://uq3ixol30lfo" path="res://Rover/rover.tscn" id="3_xwqu1"]
@@ -8,16 +8,32 @@ albedo_color = Color(0.686275, 0.603922, 0.435294, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jr03d"]
 material = SubResource("StandardMaterial3D_dqf4j")
-size = Vector3(100, 1, 100)
+size = Vector3(100, 1, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_800wt"]
-size = Vector3(100, 1, 100)
+size = Vector3(100, 1, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1tim"]
 size = Vector3(7.5, 7.5, 7.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8p45"]
 albedo_color = Color(0.278431, 0.835294, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oqgca"]
+sky_top_color = Color(0.647059, 0.352941, 0.337255, 1)
+sky_horizon_color = Color(0.67451, 0.654902, 0.596078, 1)
+sky_curve = 0.121838
+sky_energy_multiplier = 2.58
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.713726, 0.505882, 0.533333, 1)
+ground_curve = 0.00965932
+
+[sub_resource type="Sky" id="Sky_ss87j"]
+sky_material = SubResource("ProceduralSkyMaterial_oqgca")
+
+[sub_resource type="Environment" id="Environment_4drep"]
+background_mode = 2
+sky = SubResource("Sky_ss87j")
 
 [node name="DevRoom" type="Node3D"]
 
@@ -32,7 +48,8 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_800wt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.404008, 0.914755, 0, -0.914755, 0.404008, 0, 6.7144, 0)
+transform = Transform3D(-0.108284, -0.856766, -0.50421, -0.974559, -0.00863141, 0.223964, -0.196236, 0.515634, -0.834034, 0.660486, 6.20278, 0.815185)
+light_energy = 3.232
 shadow_enabled = true
 
 [node name="Obstacle" type="StaticBody3D" parent="."]
@@ -56,4 +73,7 @@ shape = SubResource("BoxShape3D_j1tim")
 [node name="console" parent="." instance=ExtResource("2_240b5")]
 
 [node name="rover" parent="." instance=ExtResource("3_xwqu1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10697, 5.43706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01221, 5.43706)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4drep")

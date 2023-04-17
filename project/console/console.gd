@@ -20,6 +20,10 @@ func parse_terminal():
 		var command_with_paramater = command.split("=")
 		if command_with_paramater.size() > 1:
 			var duration = float(command_with_paramater[1])
+			if command_with_paramater[0] == "rotate_forearm":
+				EventQueue.emit_signal("rotate_forearm", duration)
+			if command_with_paramater[0] == "rotate_upperarm":
+				EventQueue.emit_signal("rotate_upperarm", duration)
 			if command_with_paramater[0] == "forward":
 				EventQueue.emit_signal("going_forward", duration*2)
 			if command_with_paramater[0] == "reverse":
