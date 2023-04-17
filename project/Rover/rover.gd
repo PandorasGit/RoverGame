@@ -12,12 +12,19 @@ extends Node3D
 @onready var forearm = get_node("VehicleBody3D/Rovee/Upper_Arm/Fore_Arm")
 @onready var upperarm = get_node("VehicleBody3D/Rovee/Upper_Arm")
 
+var going_forward = false
+var going_reverse = false
 var current_cam := 0
 
 func _process(_delta):
-	if abs(rover.linear_velocity.z) >= 2:
+	
+	if abs(rover.linear_velocity.z) >= 2.001 and (going_forward or going_reverse):
 		rover.engine_force = 0
-
+	elif abs(rover.linear_velocity.z) <= 1.99 and (going_forward or going_reverse):
+		if going_forward:
+			rover.engine_force = -20
+		elif going_reverse:
+			rover.engine_force = 20
 
 func _ready():
 	EventQueue.going_forward.connect(forward)
@@ -30,18 +37,18 @@ func _ready():
 
 
 func forward(duration):
-	
+	going_forward = true
 	rover.brake = 0
-	rover.engine_force = -20
+	rover.engine_force = -10
 	durationTimer.stop()
 	durationTimer.start(duration)
 	
 	
 	
 func reverse(duration):
-	
+	going_reverse = true
 	rover.brake = 0
-	rover.engine_force = 20
+	rover.engine_force = 10
 	durationTimer.stop()
 	durationTimer.start(duration)
 	
@@ -50,6 +57,8 @@ func brake():
 	durationTimer.stop()
 	rover.engine_force = 0
 	rover.brake = 1
+	going_forward = false
+	going_reverse = false
 	
 	
 func spin(duration):
