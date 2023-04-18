@@ -36,7 +36,6 @@ func _ready():
 
 
 func _physics_process(_delta):
-	print(velocity_magnitude())
 	if going:
 		if rover.global_position.distance_to(last_position) >= traveling:
 			brake()
