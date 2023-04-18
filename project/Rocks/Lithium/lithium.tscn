@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdrclcw24q5ic"]
+
+[ext_resource type="PackedScene" uid="uid://j5yg12lmkce2" path="res://Lithium.glb" id="1_bgegh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_emq2o"]
+height = 2.5
+radius = 1.0
+
+[node name="Lithium" instance=ExtResource("1_bgegh")]
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_emq2o")

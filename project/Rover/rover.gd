@@ -11,6 +11,8 @@ extends Node3D
 @onready var upperLeftClaw = $VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment/Claw_Left_Lower/Claw_Left_Upper
 @onready var upperRightClaw = $VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment/Claw_Right_Lower/Claw_Right_Upper
 @onready var durationTimer = $DurationTimer
+@onready var clawArea = $VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment/ClawArea/ClawAreaOfEffect
+
 
 @onready var forearm = get_node("VehicleBody3D/Rovee/Upper_Arm/Fore_Arm")
 @onready var upperarm = get_node("VehicleBody3D/Rovee/Upper_Arm")
@@ -123,7 +125,7 @@ func open():
 	var left_target_vector = Vector3(0,PI/8,0) 
 	tween.parallel().tween_property(upperLeftClaw, "rotation", left_target_vector, 1)
 	tween.parallel().tween_property(upperRightClaw, "rotation", right_target_vector, 1)
-
+	clawArea.disabled = false
 
 
 func close():
@@ -132,6 +134,7 @@ func close():
 	var left_target_vector = Vector3(0,0,0) 
 	tween.parallel().tween_property(upperLeftClaw, "rotation", left_target_vector, 1)
 	tween.parallel().tween_property(upperRightClaw, "rotation", right_target_vector, 1)
+	clawArea.disabled = false
 
 
 func _on_duration_timer_timeout():
