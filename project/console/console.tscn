@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ku2ktx5wi7fd"]
+[gd_scene load_steps=3 format=3 uid="uid://ku2ktx5wi7fd"]
 
 [ext_resource type="Script" path="res://console/console.gd" id="1_3mnot"]
+[ext_resource type="FontFile" uid="uid://ca52hre42v2ng" path="res://common/CourierPrime-Regular.ttf" id="2_1albp"]
 
 [node name="console" type="Control"]
 layout_mode = 3
@@ -22,6 +23,7 @@ offset_right = 528.0
 offset_bottom = -32.0
 grow_vertical = 0
 theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("2_1albp")
 placeholder_text = "LOREM IPSUM BB GROL"
 editable = false
 
@@ -33,6 +35,7 @@ offset_top = -30.704
 offset_right = 528.0
 offset_bottom = -1.0
 theme_override_constants/caret_width = 5
+theme_override_fonts/font = ExtResource("2_1albp")
 caret_blink = true
 
 [connection signal="text_changed" from="History" to="History" method="_on_text_changed"]
