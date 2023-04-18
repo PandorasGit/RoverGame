@@ -36,9 +36,19 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if going and rover.global_position.distance_to(last_position) >= traveling:
+	print(velocity_magnitude())
+	if going:
+		if rover.global_position.distance_to(last_position) >= traveling:
+			brake()
+		if abs(velocity_magnitude()) > 2:
+			rover.engine_force = 1 * sign(rover.engine_force)
+		if abs(velocity_magnitude()) < 1.9:
+			rover.engine_force = 10 * sign(rover.engine_force)
 
-		brake()
+
+func velocity_magnitude() -> float:
+	var magnitude := pow(rover.linear_velocity.z, 2) + pow(rover.linear_velocity.x, 2) + pow(rover.linear_velocity.y, 2)
+	return sqrt(magnitude)
 
 
 func forward(distance):
@@ -48,7 +58,6 @@ func forward(distance):
 	rover.brake = 0
 	rover.engine_force = -10
 
-	
 	
 	
 func reverse(distance):
