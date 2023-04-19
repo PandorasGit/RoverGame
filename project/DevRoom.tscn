@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dd745tikdvt8i"]
+[gd_scene load_steps=18 format=3 uid="uid://dd745tikdvt8i"]
 
 [ext_resource type="PackedScene" uid="uid://ku2ktx5wi7fd" path="res://console/console.tscn" id="2_240b5"]
 [ext_resource type="ArrayMesh" uid="uid://d24y6lob26yjm" path="res://terrain.obj" id="3_7atei"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://qnkkm7p3q3e7" path="res://Rocks/Rock03/Rock03.tscn" id="6_ycmqf"]
 [ext_resource type="PackedScene" uid="uid://j5yg12lmkce2" path="res://Lithium.glb" id="7_tsrdm"]
 [ext_resource type="ArrayMesh" uid="uid://boyxf8g33n1bx" path="res://rockformation.obj" id="8_m8oqq"]
+[ext_resource type="AudioStream" uid="uid://b8srfjwxsf7ro" path="res://space_ambience.ogg" id="9_mp7h5"]
+[ext_resource type="AudioStream" uid="uid://cjtwy4ap5q7lm" path="res://ambience.ogg" id="10_40avu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oqgca"]
 sky_top_color = Color(0.647059, 0.352941, 0.337255, 1)
@@ -105,5 +107,21 @@ surface_material_override/0 = SubResource("StandardMaterial3D_w1axw")
 transform = Transform3D(-0.360404, 0, 0.932796, 0, 1, 0, -0.932796, 0, -0.360404, -27.4267, 29.0733, -255.298)
 mesh = ExtResource("8_m8oqq")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibif8")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mp7h5")
+volume_db = -8.0
+autoplay = true
+
+[node name="AmbientWind" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_40avu")
+volume_db = -8.0
+autoplay = true
+
+[node name="AmbientWind2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9963, 0, -259.405)
+stream = ExtResource("10_40avu")
+volume_db = -8.0
+autoplay = true
 
 [editable path="Lithium"]

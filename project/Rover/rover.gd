@@ -54,6 +54,8 @@ func velocity_magnitude() -> float:
 
 func forward(distance):
 	going = true
+	$VehicleBody3D/Engine.playing = true
+	$VehicleBody3D/Wheels.playing = true
 	last_position = rover.global_position
 	traveling = distance
 	rover.brake = 0
@@ -63,6 +65,8 @@ func forward(distance):
 	
 func reverse(distance):
 	going = true
+	$VehicleBody3D/Engine.playing = true
+	$VehicleBody3D/Wheels.playing = true
 	last_position = rover.global_position
 	traveling = distance
 	rover.brake = 0
@@ -70,6 +74,8 @@ func reverse(distance):
 	
 	
 func brake():
+	$VehicleBody3D/Engine.playing = false
+	$VehicleBody3D/Wheels.playing = false
 	durationTimer.stop()
 	rover.engine_force = 0
 	rover.brake = 1
@@ -79,6 +85,8 @@ func brake():
 	
 func spin(duration):
 	rover.engine_force = 0
+	$VehicleBody3D/Engine.playing = true
+	$VehicleBody3D/Wheels.playing = true
 	if duration < 0:
 		frontRightWheel.engine_force = 100
 		middleRightWheel.engine_force = 100
@@ -107,35 +115,51 @@ func change_camera():
 
 func rotate_fore_arm(rotation_degree):
 	if rotation_degree >= -60 and rotation_degree <= 10:
+		audio_start()
 		var tween = get_tree().create_tween()
 		var target_vector = Vector3(deg_to_rad(rotation_degree),0,0) 
 		tween.tween_property(forearm, "rotation", target_vector, 2)
+		tween.finished.connect(audio_stop)
 		
 
 func rotate_upperarm(rotation_degree):
 	if rotation_degree >= -45 and rotation_degree <= 30:
+		audio_start()
 		var tween = get_tree().create_tween()
 		var target_vector = Vector3(deg_to_rad(rotation_degree),0,0) 
 		tween.tween_property(upperarm, "rotation", target_vector, 2)
+		tween.finished.connect(audio_stop)
 
 
 func open():
+	audio_start()
 	var tween = get_tree().create_tween()
 	var right_target_vector = Vector3(0,-PI/8,0) 
 	var left_target_vector = Vector3(0,PI/8,0) 
 	tween.parallel().tween_property(upperLeftClaw, "rotation", left_target_vector, 1)
 	tween.parallel().tween_property(upperRightClaw, "rotation", right_target_vector, 1)
+	tween.finished.connect(audio_stop)
 	clawArea.disabled = false
 
 
 func close():
+	audio_start()
 	var tween = get_tree().create_tween()
 	var right_target_vector = Vector3(0,0,0) 
 	var left_target_vector = Vector3(0,0,0) 
 	tween.parallel().tween_property(upperLeftClaw, "rotation", left_target_vector, 1)
 	tween.parallel().tween_property(upperRightClaw, "rotation", right_target_vector, 1)
+	tween.finished.connect(audio_stop)
 	clawArea.disabled = false
 
 
 func _on_duration_timer_timeout():
 	brake()
+	
+	
+func audio_start():
+	$VehicleBody3D/Engine.playing = true
+	
+	
+func audio_stop():
+	$VehicleBody3D/Engine.playing = false

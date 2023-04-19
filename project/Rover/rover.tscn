@@ -1,8 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://uq3ixol30lfo"]
+[gd_scene load_steps=32 format=3 uid="uid://uq3ixol30lfo"]
 
 [ext_resource type="Script" path="res://Rover/rover.gd" id="1_8iqnh"]
 [ext_resource type="PackedScene" uid="uid://docbfeldwp2ey" path="res://Rover/Rovee.glb" id="2_8y4km"]
 [ext_resource type="PackedScene" uid="uid://ns5kge6sx1j2" path="res://Rover/Rovee_Wheel.glb" id="2_nbuni"]
+[ext_resource type="AudioStream" uid="uid://di27t7q021y83" path="res://engine.ogg" id="4_0dg0g"]
+[ext_resource type="AudioStream" uid="uid://boq3280jhkny8" path="res://rolling_tires.ogg" id="5_kf4xu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v05ob"]
 size = Vector3(4.177, 1.913, 6.201)
@@ -312,6 +314,17 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 surface_material_override/0 = SubResource("StandardMaterial3D_c7m0s")
 
 [node name="Node" type="Node3D" parent="VehicleBody3D"]
+
+[node name="Engine" type="AudioStreamPlayer3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+stream = ExtResource("4_0dg0g")
+volume_db = 11.532
+max_db = 6.0
+
+[node name="Wheels" type="AudioStreamPlayer3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 3.5)
+stream = ExtResource("5_kf4xu")
+volume_db = -7.207
 
 [node name="DurationTimer" type="Timer" parent="."]
 one_shot = true
