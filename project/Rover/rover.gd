@@ -176,3 +176,8 @@ func start_particles():
 func end_particles():
 	for particle in $VehicleBody3D/Particles.get_children():
 		particle.emitting = false
+
+
+func _on_claw_area_area_entered(area):
+	if area.is_in_group("resource"):
+		area.get_parent_node_3d().queue_free()
