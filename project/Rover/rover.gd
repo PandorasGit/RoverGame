@@ -12,12 +12,11 @@ extends Node3D
 @onready var upperRightClaw = $VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment/Claw_Right_Lower/Claw_Right_Upper
 @onready var durationTimer = $DurationTimer
 @onready var clawArea = $VehicleBody3D/Rovee/Upper_Arm/Fore_Arm/Claw_Compartment/ClawArea/ClawAreaOfEffect
-
-
 @onready var forearm = get_node("VehicleBody3D/Rovee/Upper_Arm/Fore_Arm")
 @onready var upperarm = get_node("VehicleBody3D/Rovee/Upper_Arm")
 
 
+var resources := 0
 var going := false
 var current_cam := 0
 var last_position := Vector3.ZERO
@@ -173,6 +172,7 @@ func start_particles():
 	for particle in $VehicleBody3D/Particles.get_children():
 		particle.emitting = true
 		
+	
 func end_particles():
 	for particle in $VehicleBody3D/Particles.get_children():
 		particle.emitting = false
@@ -181,3 +181,4 @@ func end_particles():
 func _on_claw_area_area_entered(area):
 	if area.is_in_group("resource"):
 		area.get_parent_node_3d().queue_free()
+		resources += 1

@@ -46,7 +46,7 @@ shadow_enabled = true
 [node name="console" parent="." instance=ExtResource("2_240b5")]
 
 [node name="rover" parent="." instance=ExtResource("3_xwqu1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01221, 5.43706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2913, 5.43706)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4drep")
@@ -91,7 +91,7 @@ transform = Transform3D(0.656454, 0, 0.754366, 0, 1, 0, -0.754366, 0, 0.656454, 
 transform = Transform3D(-0.00765878, 0.058135, -0.596474, -0.0367501, 0.595354, 0.0584978, 0.598172, 0.0373213, -0.00404309, 5.3684, 2.16609, -47.0088)
 
 [node name="Lithium" parent="." instance=ExtResource("7_1qr8n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.4941)
+transform = Transform3D(0.540461, -0.841369, 0, 0.841369, 0.540461, 0, 0, 0, 1, 1.23376, -1.27218, -44.5211)
 
 [node name="Rockformation" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.360404, 0, 0.932796, 0, 1, 0, -0.932796, 0, -0.360404, -27.4267, 29.0733, -255.298)
@@ -113,3 +113,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9963, 0, -259.405)
 stream = ExtResource("10_40avu")
 volume_db = -8.0
 autoplay = true
+
+[node name="Lithium2" parent="." instance=ExtResource("7_1qr8n")]
+transform = Transform3D(0.415646, -0.667296, 0.618024, 0.848806, 0.528705, 0, -0.326753, 0.524583, 0.786159, -26.37, -1.21616, -257.842)

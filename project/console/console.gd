@@ -7,7 +7,7 @@ extends Control
 @export var average_angular_speed := 5.365
 var terminal_text
 
-var camera_names = ["Orbit Cam", "Selfie Cam", "Ground Cam"]
+var camera_names = ["Mast Cam", "Selfie Cam", "Ground Cam"]
 var current_cam = 0
 
 func _on_terminal_text_submitted(_new_text):
@@ -46,3 +46,12 @@ func parse_terminal():
 			EventQueue.emit_signal("open_claw")
 		if command_with_paramater[0] == "close":
 			EventQueue.emit_signal("close_claw")
+		if command_with_paramater[0] == "help":
+			command_history.text += "forward=xx (move forward a number of meters)
+reverse=xx (move backwards a number of meters)
+spin=xx (rotate the rover a number of degrees)
+camera (change current camera)
+rotate_forearm=xx (rotate between -60 and 10 degrees)
+rotate_upperarm=xx (rotate between -45 and 30)
+open (open claw to retrieve resources)
+close (close claw)\n"

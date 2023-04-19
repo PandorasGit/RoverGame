@@ -25,7 +25,16 @@ offset_bottom = -32.0
 grow_vertical = 0
 theme_override_constants/line_spacing = -5
 theme_override_fonts/font = ExtResource("2_1albp")
-placeholder_text = "LOREM IPSUM BB GROL"
+placeholder_text = "Welcome to Untitled Rover Game!
+
+forward=xx (move forward a number of meters)
+reverse=xx (move backwards a number of meters)
+spin=xx (rotate the rover a number of degrees)
+camera (change current camera)
+rotate_forearm=xx (rotate between -60 and 10 degrees)
+rotate_upperarm=xx (rotate between -45 and 30)
+open (open claw to retrieve resources)
+close (close claw)"
 editable = false
 
 [node name="Terminal" type="LineEdit" parent="."]
@@ -45,7 +54,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("3_l14w3")
 theme_override_font_sizes/font_size = 39
-text = "Orbit Cam"
+text = "Mast Camera"
 
 [connection signal="text_changed" from="History" to="History" method="_on_text_changed"]
 [connection signal="text_submitted" from="Terminal" to="." method="_on_terminal_text_submitted"]
