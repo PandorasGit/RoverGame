@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd745tikdvt8i"]
+[gd_scene load_steps=16 format=3 uid="uid://dd745tikdvt8i"]
 
 [ext_resource type="PackedScene" uid="uid://ku2ktx5wi7fd" path="res://console/console.tscn" id="2_240b5"]
 [ext_resource type="ArrayMesh" uid="uid://d24y6lob26yjm" path="res://terrain.obj" id="3_7atei"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://v3qxgpx7575s" path="res://Rocks/Rock02/Rock02.tscn" id="5_s1hxs"]
 [ext_resource type="PackedScene" uid="uid://qnkkm7p3q3e7" path="res://Rocks/Rock03/Rock03.tscn" id="6_ycmqf"]
 [ext_resource type="PackedScene" uid="uid://j5yg12lmkce2" path="res://Lithium.glb" id="7_tsrdm"]
+[ext_resource type="ArrayMesh" uid="uid://boyxf8g33n1bx" path="res://rockformation.obj" id="8_m8oqq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oqgca"]
 sky_top_color = Color(0.647059, 0.352941, 0.337255, 1)
@@ -35,6 +36,9 @@ albedo_color = Color(0.729412, 0.729412, 0.729412, 1)
 metallic = 1.0
 metallic_specular = 1.0
 roughness = 0.38
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibif8"]
+albedo_color = Color(0.92549, 0.65098, 0.517647, 1)
 
 [node name="DevRoom" type="Node3D"]
 
@@ -96,5 +100,10 @@ transform = Transform3D(0.149246, -0.462488, 0, 0.462488, 0.149246, 0, 0, 0, 0.4
 [node name="Cube" parent="Lithium" index="0"]
 transform = Transform3D(1.74613, 5.96046e-08, 0, -5.96046e-08, 1.74613, 0, 0, 0, 1.74613, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_w1axw")
+
+[node name="Rockformation" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.360404, 0, 0.932796, 0, 1, 0, -0.932796, 0, -0.360404, -27.4267, 29.0733, -255.298)
+mesh = ExtResource("8_m8oqq")
+surface_material_override/0 = SubResource("StandardMaterial3D_ibif8")
 
 [editable path="Lithium"]
