@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://uq3ixol30lfo"]
+[gd_scene load_steps=35 format=3 uid="uid://uq3ixol30lfo"]
 
 [ext_resource type="Script" path="res://Rover/rover.gd" id="1_8iqnh"]
 [ext_resource type="PackedScene" uid="uid://docbfeldwp2ey" path="res://Rover/Rovee.glb" id="2_8y4km"]
@@ -132,6 +132,17 @@ roughness = 0.48
 albedo_color = Color(0.709804, 0.701961, 0.690196, 1)
 metallic = 0.68
 roughness = 0.48
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ja3vr"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_hebqc"]
+material = SubResource("StandardMaterial3D_ja3vr")
+
+[sub_resource type="Gradient" id="Gradient_y74a4"]
+offsets = PackedFloat32Array(0.682119, 1)
+colors = PackedColorArray(0.753575, 0.392598, 0.292303, 1, 1, 1, 1, 0)
 
 [node name="rover" type="Node3D"]
 script = ExtResource("1_8iqnh")
@@ -325,6 +336,86 @@ max_db = 6.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 3.5)
 stream = ExtResource("5_kf4xu")
 volume_db = -7.207
+
+[node name="Particles" type="Node3D" parent="VehicleBody3D"]
+
+[node name="Dust" type="CPUParticles3D" parent="VehicleBody3D/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2, 0.5)
+emitting = false
+amount = 13
+mesh = SubResource("SphereMesh_hebqc")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.1
+color = Color(0.792157, 0.435294, 0.290196, 1)
+color_ramp = SubResource("Gradient_y74a4")
+
+[node name="Dust2" type="CPUParticles3D" parent="VehicleBody3D/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2, 3.5)
+emitting = false
+amount = 13
+mesh = SubResource("SphereMesh_hebqc")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.1
+color = Color(0.792157, 0.435294, 0.290196, 1)
+color_ramp = SubResource("Gradient_y74a4")
+
+[node name="Dust3" type="CPUParticles3D" parent="VehicleBody3D/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2, -2.5)
+emitting = false
+amount = 13
+mesh = SubResource("SphereMesh_hebqc")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.1
+color = Color(0.792157, 0.435294, 0.290196, 1)
+color_ramp = SubResource("Gradient_y74a4")
+
+[node name="Dust4" type="CPUParticles3D" parent="VehicleBody3D/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -2, 0.5)
+emitting = false
+amount = 13
+mesh = SubResource("SphereMesh_hebqc")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.1
+color = Color(0.792157, 0.435294, 0.290196, 1)
+color_ramp = SubResource("Gradient_y74a4")
+
+[node name="Dust5" type="CPUParticles3D" parent="VehicleBody3D/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -2, 3.5)
+emitting = false
+amount = 13
+mesh = SubResource("SphereMesh_hebqc")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.1
+color = Color(0.792157, 0.435294, 0.290196, 1)
+color_ramp = SubResource("Gradient_y74a4")
+
+[node name="Dust6" type="CPUParticles3D" parent="VehicleBody3D/Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -2, -2.5)
+emitting = false
+amount = 13
+mesh = SubResource("SphereMesh_hebqc")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.1
+color = Color(0.792157, 0.435294, 0.290196, 1)
+color_ramp = SubResource("Gradient_y74a4")
 
 [node name="DurationTimer" type="Timer" parent="."]
 one_shot = true

@@ -7,6 +7,8 @@ extends Control
 @export var average_angular_speed := 5.365
 var terminal_text
 
+var camera_names = ["Orbit Cam", "Selfie Cam", "Ground Cam"]
+var current_cam = 0
 
 func _on_terminal_text_submitted(_new_text):
 	command_history.text += terminal.text + "\n"
@@ -33,6 +35,12 @@ func parse_terminal():
 		if command_with_paramater[0] == "brake":
 			EventQueue.emit_signal("breaking")
 		if command_with_paramater[0] == "camera":
+			if current_cam < 2:
+				current_cam += 1
+				$CameraName.text = camera_names[current_cam]
+			else:
+				current_cam = 0  
+				$CameraName.text = camera_names[current_cam]
 			EventQueue.emit_signal("changing_camera")
 		if command_with_paramater[0] == "open":
 			EventQueue.emit_signal("open_claw")

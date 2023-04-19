@@ -56,6 +56,7 @@ func forward(distance):
 	going = true
 	$VehicleBody3D/Engine.playing = true
 	$VehicleBody3D/Wheels.playing = true
+	start_particles()
 	last_position = rover.global_position
 	traveling = distance
 	rover.brake = 0
@@ -67,6 +68,7 @@ func reverse(distance):
 	going = true
 	$VehicleBody3D/Engine.playing = true
 	$VehicleBody3D/Wheels.playing = true
+	start_particles()
 	last_position = rover.global_position
 	traveling = distance
 	rover.brake = 0
@@ -76,6 +78,7 @@ func reverse(distance):
 func brake():
 	$VehicleBody3D/Engine.playing = false
 	$VehicleBody3D/Wheels.playing = false
+	end_particles()
 	durationTimer.stop()
 	rover.engine_force = 0
 	rover.brake = 1
@@ -87,6 +90,7 @@ func spin(duration):
 	rover.engine_force = 0
 	$VehicleBody3D/Engine.playing = true
 	$VehicleBody3D/Wheels.playing = true
+	start_particles()
 	if duration < 0:
 		frontRightWheel.engine_force = 100
 		middleRightWheel.engine_force = 100
@@ -163,3 +167,12 @@ func audio_start():
 	
 func audio_stop():
 	$VehicleBody3D/Engine.playing = false
+	
+	
+func start_particles():
+	for particle in $VehicleBody3D/Particles.get_children():
+		particle.emitting = true
+		
+func end_particles():
+	for particle in $VehicleBody3D/Particles.get_children():
+		particle.emitting = false
