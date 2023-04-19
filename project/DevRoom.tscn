@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd745tikdvt8i"]
+[gd_scene load_steps=18 format=3 uid="uid://dd745tikdvt8i"]
 
+[ext_resource type="Script" path="res://DevRoom.gd" id="1_eu4dc"]
 [ext_resource type="PackedScene" uid="uid://ku2ktx5wi7fd" path="res://console/console.tscn" id="2_240b5"]
 [ext_resource type="ArrayMesh" uid="uid://d24y6lob26yjm" path="res://terrain.obj" id="3_7atei"]
 [ext_resource type="PackedScene" uid="uid://uq3ixol30lfo" path="res://Rover/rover.tscn" id="3_xwqu1"]
@@ -37,6 +38,7 @@ data = PackedVector3Array(-1048.11, 21.776, 1117.98, -1117.98, 38.3864, 1048.11,
 albedo_color = Color(0.92549, 0.65098, 0.517647, 1)
 
 [node name="DevRoom" type="Node3D"]
+script = ExtResource("1_eu4dc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.108284, -0.856766, -0.50421, -0.974559, -0.00863141, 0.223964, -0.196236, 0.515634, -0.834034, 0.660486, 6.20278, 0.815185)
@@ -90,9 +92,6 @@ transform = Transform3D(0.656454, 0, 0.754366, 0, 1, 0, -0.754366, 0, 0.656454, 
 [node name="Rock09" parent="Rocks" instance=ExtResource("6_ycmqf")]
 transform = Transform3D(-0.00765878, 0.058135, -0.596474, -0.0367501, 0.595354, 0.0584978, 0.598172, 0.0373213, -0.00404309, 5.3684, 2.16609, -47.0088)
 
-[node name="Lithium" parent="." instance=ExtResource("7_1qr8n")]
-transform = Transform3D(0.540461, -0.841369, 0, 0.841369, 0.540461, 0, 0, 0, 1, 1.23376, -1.27218, -44.5211)
-
 [node name="Rockformation" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.360404, 0, 0.932796, 0, 1, 0, -0.932796, 0, -0.360404, -27.4267, 29.0733, -255.298)
 mesh = ExtResource("8_m8oqq")
@@ -114,5 +113,10 @@ stream = ExtResource("10_40avu")
 volume_db = -8.0
 autoplay = true
 
-[node name="Lithium2" parent="." instance=ExtResource("7_1qr8n")]
+[node name="Collectables" type="Node3D" parent="."]
+
+[node name="Lithium" parent="Collectables" instance=ExtResource("7_1qr8n")]
+transform = Transform3D(0.540461, -0.841369, 0, 0.841369, 0.540461, 0, 0, 0, 1, 1.23376, -1.27218, -44.5211)
+
+[node name="Lithium2" parent="Collectables" instance=ExtResource("7_1qr8n")]
 transform = Transform3D(0.415646, -0.667296, 0.618024, 0.848806, 0.528705, 0, -0.326753, 0.524583, 0.786159, -26.37, -1.21616, -257.842)

@@ -2,6 +2,8 @@ extends Control
 
 @onready var command_history = $History
 @onready var terminal = $Terminal
+@onready var battery_time = $BatteryRemaining
+@onready var battery = $Battery
 
 @export var average_linear_speed := 2
 @export var average_angular_speed := 5.365
@@ -9,6 +11,9 @@ var terminal_text
 
 var camera_names = ["Mast Cam", "Selfie Cam", "Ground Cam"]
 var current_cam = 0
+
+func _process(delta):
+	battery_time.text = "Battery Seconds Remaining: %0d" % battery.time_left
 
 func _on_terminal_text_submitted(_new_text):
 	command_history.text += terminal.text + "\n"
@@ -55,3 +60,9 @@ rotate_forearm=xx (rotate between -60 and 10 degrees)
 rotate_upperarm=xx (rotate between -45 and 30)
 open (open claw to retrieve resources)
 close (close claw)\n"
+
+
+func _on_battery_timeout():
+	EventQueue.emit_signal("breaking")
+	terminal.editable = false
+	terminal.text = "I am cold and my battery is dark"

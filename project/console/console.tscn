@@ -56,5 +56,21 @@ theme_override_fonts/font = ExtResource("3_l14w3")
 theme_override_font_sizes/font_size = 39
 text = "Mast Camera"
 
+[node name="Battery" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
+[node name="BatteryRemaining" type="Label" parent="."]
+layout_mode = 0
+offset_left = 694.0
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_l14w3")
+theme_override_font_sizes/font_size = 25
+text = "Battery Seconds Remaining: "
+
 [connection signal="text_changed" from="History" to="History" method="_on_text_changed"]
 [connection signal="text_submitted" from="Terminal" to="." method="_on_terminal_text_submitted"]
+[connection signal="timeout" from="Battery" to="." method="_on_battery_timeout"]
