@@ -12,9 +12,11 @@ script = ExtResource("1_5w2t0")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1155.0
-offset_bottom = 647.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
@@ -51,10 +53,10 @@ alignment = 1
 
 [node name="Credits" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 494.0
-offset_right = 324.0
-offset_bottom = 641.0
+offset_left = 5.0
+offset_top = 503.0
+offset_right = 317.0
+offset_bottom = 650.0
 theme_override_fonts/font = ExtResource("3_tsy2h")
 theme_override_font_sizes/font_size = 40
 text = "Developed by:
