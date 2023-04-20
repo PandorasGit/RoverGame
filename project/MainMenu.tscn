@@ -59,7 +59,7 @@ theme_override_fonts/font = ExtResource("3_tsy2h")
 theme_override_font_sizes/font_size = 40
 text = "Developed by:
 	VMoonDev
-	UltraPandora"
+	Pandora"
 
 [node name="DevRoom" parent="." instance=ExtResource("2_ewa1h")]
 
