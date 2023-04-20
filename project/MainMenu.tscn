@@ -1,0 +1,138 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh75akpwgsqh3"]
+
+[ext_resource type="FontFile" uid="uid://lr4bpxytotqj" path="res://common/CourierPrime-Bold.ttf" id="1_0ohsf"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_5w2t0"]
+[ext_resource type="PackedScene" uid="uid://dd745tikdvt8i" path="res://DevRoom.tscn" id="2_ewa1h"]
+[ext_resource type="PackedScene" uid="uid://uq3ixol30lfo" path="res://Rover/rover.tscn" id="3_syu7u"]
+[ext_resource type="FontFile" uid="uid://ca52hre42v2ng" path="res://common/CourierPrime-Regular.ttf" id="3_tsy2h"]
+[ext_resource type="AudioStream" uid="uid://b8srfjwxsf7ro" path="res://space_ambience.ogg" id="5_k8xkv"]
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_5w2t0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 647.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.5
+offset_top = -257.5
+offset_right = 427.5
+offset_bottom = -169.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0ohsf")
+theme_override_font_sizes/font_size = 75
+text = "Untitled Rover Game"
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = 211.5
+offset_right = 80.5
+offset_bottom = 242.5
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "TYPE PLAY"
+alignment = 1
+
+[node name="Credits" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 494.0
+offset_right = 324.0
+offset_bottom = 641.0
+theme_override_fonts/font = ExtResource("3_tsy2h")
+theme_override_font_sizes/font_size = 40
+text = "Developed by:
+	VMoonDev
+	UltraPandora"
+
+[node name="DevRoom" parent="." instance=ExtResource("2_ewa1h")]
+
+[node name="console" parent="DevRoom" index="1"]
+visible = false
+
+[node name="rover" parent="DevRoom" index="2"]
+visible = false
+
+[node name="Rocks" parent="DevRoom" index="5"]
+visible = false
+
+[node name="Rock01" parent="DevRoom/Rocks" index="0"]
+visible = false
+
+[node name="Rock02" parent="DevRoom/Rocks" index="1"]
+visible = false
+
+[node name="Rock03" parent="DevRoom/Rocks" index="2"]
+visible = false
+
+[node name="Rock04" parent="DevRoom/Rocks" index="3"]
+visible = false
+
+[node name="Rock05" parent="DevRoom/Rocks" index="4"]
+visible = false
+
+[node name="Rock06" parent="DevRoom/Rocks" index="5"]
+visible = false
+
+[node name="Rock07" parent="DevRoom/Rocks" index="6"]
+visible = false
+
+[node name="Rock08" parent="DevRoom/Rocks" index="7"]
+visible = false
+
+[node name="Rock09" parent="DevRoom/Rocks" index="8"]
+visible = false
+
+[node name="Rockformation" parent="DevRoom" index="6"]
+visible = false
+
+[node name="Music" parent="DevRoom" index="7"]
+autoplay = false
+
+[node name="AmbientWind" parent="DevRoom" index="8"]
+visible = false
+
+[node name="AmbientWind2" parent="DevRoom" index="9"]
+visible = false
+
+[node name="Collectables" parent="DevRoom" index="10"]
+visible = false
+
+[node name="rover" parent="." instance=ExtResource("3_syu7u")]
+transform = Transform3D(-0.482503, 0, -0.875894, 0, 1, 0, 0.875894, 0, -0.482503, -983.706, 1.38988, -847.927)
+
+[node name="Camera3D" type="Camera3D" parent="rover/VehicleBody3D" index="13"]
+transform = Transform3D(-0.470858, -0.129607, -0.872637, 1.49012e-08, 0.98915, -0.146912, 0.882209, -0.0691745, -0.465749, -7.51379, -0.937596, -11.3579)
+current = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k8xkv")
+autoplay = true
+
+[connection signal="text_submitted" from="Control/LineEdit" to="." method="_on_line_edit_text_submitted"]
+
+[editable path="DevRoom"]
+[editable path="rover"]
+[editable path="rover/VehicleBody3D/Rovee"]
+[editable path="rover/VehicleBody3D/FrontRight/Rovee_Wheel"]
+[editable path="rover/VehicleBody3D/BackLeft/Rovee_Wheel"]
+[editable path="rover/VehicleBody3D/BackRight/Rovee_Wheel"]
+[editable path="rover/VehicleBody3D/MiddleLeft/Rovee_Wheel"]
+[editable path="rover/VehicleBody3D/MiddleRight/Rovee_Wheel"]
+[editable path="rover/VehicleBody3D/FrontLeft/Rovee_Wheel"]
